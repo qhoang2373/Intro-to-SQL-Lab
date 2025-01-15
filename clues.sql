@@ -1,16 +1,32 @@
 -- Clue #1: We recently got word that someone fitting Carmen Sandiego's description has been traveling through Southern Europe. She's most likely traveling someplace where she won't be noticed, so find the least populated country in Southern Europe, and we'll start looking for her there.
  
 -- Write SQL query here
-
+SELECT Countries
+FROM Countries
+WHERE Region = 'Southern Europe'
+ORDER BY Population ASC
+LIMIT 1;
 
 -- Clue #2: Now that we're here, we have insight that Carmen was seen attending language classes in this country's officially recognized language. Check our databases and find out what language is spoken in this country, so we can call in a translator to work with you.
 
 -- Write SQL query here
 
+-- read what it is asking, it is asking to find out what language is spoken in this country, in this is case it is what language is spoken in the Vatican
+
+SELECT language -- language is the value within the countrylanguages table that will give us the country of what we are looking for,
+FROM countrylanguages -- find out what table the question would refer to, it would be this one because its asking what language is spoken in the Vatican
+WHERE countrycode = 'VAT'; -- the country languages table states that it is 3 characters, so VAT is 3 characters 
+
 
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on to a different country, a country where people speak only the language she was learning. Find out which nearby country speaks nothing but that language.
 
 -- Write SQL query here
+
+-- it is asking, what country speaks italian
+
+SELECT countrycode -- countrycode is the value within the countrylanguages table that will give us the country of what we are looking for,
+FROM countrylanguages -- this is the table that will show us the languages value because its asking what country speaks italian
+WHERE language = 'Italian'; -- we are looking for the language to be italian
 
 
 -- Clue #4: We're booking the first flight out – maybe we've actually got a chance to catch her this time. There are only two cities she could be flying to in the country. One is named the same as the country – that would be too obvious. We're following our gut on this one; find out what other city in that country she might be flying to.
