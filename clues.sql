@@ -69,8 +69,6 @@ WHERE name LIKE 'General San Mart%'; -- filter condition applied to the query
 --               In a city of ninety-one thousand and now, eighty five.
 
 
-
-
-
-
--- We're counting on you, gumshoe. Find out where she's headed, send us the info, and we'll be sure to meet her at the gates with bells on.
+SELECT * 
+FROM cities
+WHERE population = 91084; -- filtering the results to include the population column of 91084
