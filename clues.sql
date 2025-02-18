@@ -35,9 +35,9 @@ WHERE language = 'Italian'; -- we are looking for the language to be italian
 -- We're following our gut on this one; find out what other city in that country she might be flying to.
 
 
-SELECT name 
-FROM cities 
-WHERE countrycode = 'SMR' 
+SELECT name
+FROM cities
+WHERE countrycode = 'SMR'
 AND name != (SELECT name FROM countries WHERE code = 'SMR');
 
 
